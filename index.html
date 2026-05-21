@@ -8,7 +8,7 @@
     <title>Ayush Jung Kunwar — AI Engineer & Creative Technologist</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/branding/favicon-32x32.png">
     <link rel="manifest" href="./site.webmanifest">
-    
+
     <style>
         :root {
             --color-dark: #030712;
@@ -20,11 +20,11 @@
             --color-text-primary: #f0f0f0;
             --color-text-secondary: #a0a0a0;
             --color-border: #1a3a52;
-            
+
             --font-mono: 'JetBrains Mono', 'Courier New', monospace;
             --font-display: 'Syne', 'Inter', sans-serif;
             --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            
+
             --duration-fast: 0.3s;
             --duration-normal: 0.6s;
             --duration-slow: 1s;
@@ -95,7 +95,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 repeating-linear-gradient(
                     0deg,
                     rgba(255, 255, 255, 0.03) 1px,
@@ -221,12 +221,37 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(0, 217, 255, 0.05) 50%, transparent 70%),
-                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.05) 0%, transparent 50%);
+            background:
+                linear-gradient(45deg, transparent 30%, rgba(0, 217, 255, 0.08) 50%, transparent 70%),
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 165, 0, 0.08) 0%, transparent 50%);
             pointer-events: none;
             z-index: 1;
+            animation: heroGlowPulse 6s ease-in-out infinite;
+        }
+
+        @keyframes heroGlowPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: heroFloatOrb 8s ease-in-out infinite;
+        }
+
+        @keyframes heroFloatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 30px) scale(1.1); }
         }
 
         .hero-content {
@@ -245,6 +270,30 @@
             letter-spacing: 3px;
             margin-bottom: 1.5rem;
             animation: fadeInUp 0.8s ease 0.1s both;
+            position: relative;
+        }
+
+        .hero-label::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: var(--color-amber);
+            transform: translateY(-50%);
+            animation: lineExpand 1s ease 0.2s backwards;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+                opacity: 0;
+            }
+            to {
+                width: 20px;
+                opacity: 1;
+            }
         }
 
         .hero-title {
@@ -253,38 +302,101 @@
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            overflow: hidden;
+            overflow: visible;
             letter-spacing: -2px;
+            position: relative;
+            background: linear-gradient(135deg, #f0f0f0 0%, #a0a0a0 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.2), transparent);
+            pointer-events: none;
+            animation: shineEffect 3s ease-in-out infinite;
+        }
+
+        @keyframes shineEffect {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .hero-title span {
             display: inline-block;
-            animation: heroLetterSlide 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+            animation: heroLetterSlide 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+            position: relative;
         }
 
+        .hero-title span:nth-child(1) { animation-delay: 0.0s; }
+        .hero-title span:nth-child(2) { animation-delay: 0.05s; }
+        .hero-title span:nth-child(3) { animation-delay: 0.1s; }
+        .hero-title span:nth-child(4) { animation-delay: 0.15s; }
+        .hero-title span:nth-child(5) { animation-delay: 0.2s; }
+        .hero-title span:nth-child(6) { animation-delay: 0.3s; }
+        .hero-title span:nth-child(7) { animation-delay: 0.35s; }
+        .hero-title span:nth-child(8) { animation-delay: 0.4s; }
+        .hero-title span:nth-child(9) { animation-delay: 0.45s; }
+        .hero-title span:nth-child(10) { animation-delay: 0.5s; }
+        .hero-title span:nth-child(11) { animation-delay: 0.6s; }
+        .hero-title span:nth-child(12) { animation-delay: 0.65s; }
+        .hero-title span:nth-child(13) { animation-delay: 0.7s; }
+        .hero-title span:nth-child(14) { animation-delay: 0.75s; }
+        .hero-title span:nth-child(15) { animation-delay: 0.8s; }
+
         @keyframes heroLetterSlide {
-            from {
+            0% {
                 opacity: 0;
-                transform: translateY(80px) rotateX(90deg);
+                transform: translateY(100px) rotateX(-90deg) scale(0.8);
             }
-            to {
+            50% {
                 opacity: 1;
-                transform: translateY(0) rotateX(0deg);
+                transform: translateY(-10px) rotateX(0deg) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotateX(0deg) scale(1);
             }
         }
 
         .hero-role {
             font-family: var(--font-mono);
             font-size: clamp(1rem, 2.5vw, 1.5rem);
-            color: var(--color-text-secondary);
+            color: var(--color-cyan);
             margin-bottom: 2rem;
             min-height: 2.5rem;
-            animation: fadeInUp 0.8s ease 0.4s both;
+            animation: fadeInUp 0.8s ease 0.6s both;
+            position: relative;
+            text-shadow: 0 0 20px rgba(0, 217, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero-role::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--color-cyan), var(--color-amber), transparent);
+            width: 0;
+            animation: underlineExpand 1.5s ease-out 0.7s forwards;
+        }
+
+        @keyframes underlineExpand {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
         .hero-role::after {
             content: '';
             animation: blink 1s step-end infinite;
+            animation-delay: 2s;
         }
 
         @keyframes blink {
@@ -298,14 +410,32 @@
             max-width: 500px;
             line-height: 1.8;
             margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease 0.6s both;
+            animation: fadeInUp 0.8s ease 0.8s both;
+            position: relative;
+            border-left: 3px solid transparent;
+            padding-left: 1.5rem;
+            border-image: linear-gradient(180deg, var(--color-cyan), var(--color-amber), transparent) 1;
+            animation: fadeInUpWithBorder 0.8s ease 0.8s both;
+        }
+
+        @keyframes fadeInUpWithBorder {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+                border-left-color: transparent;
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                border-left-color: rgba(0, 217, 255, 0.3);
+            }
         }
 
         .hero-cta {
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
-            animation: fadeInUp 0.8s ease 0.8s both;
+            animation: fadeInUp 0.8s ease 1s both;
         }
 
         .btn {
@@ -321,13 +451,29 @@
             overflow: hidden;
             transition: all 0.3s ease;
             border-radius: 0;
+            box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+            animation: buttonPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        @keyframes buttonPop {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
         }
 
         .btn-primary {
-            background: var(--color-cyan);
+            background: linear-gradient(135deg, var(--color-cyan), #00b8d4);
             color: var(--color-dark);
             font-weight: 700;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.3);
+            box-shadow:
+                0 0 20px rgba(0, 217, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
         }
 
         .btn-primary::before {
@@ -337,15 +483,37 @@
             left: 50%;
             width: 0;
             height: 0;
-            background: rgba(255, 255, 255, 0.3);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
 
+        .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
         .btn-primary:hover {
-            box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
-            transform: translateY(-2px);
+            box-shadow:
+                0 10px 40px rgba(0, 217, 255, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 60px rgba(0, 217, 255, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .btn-primary:hover::after {
+            left: 100%;
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
         }
 
         .btn-primary:active::before {
@@ -376,23 +544,46 @@
             color: var(--color-amber);
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: float 2s ease-in-out infinite;
+            animation: float 3s ease-in-out infinite;
             z-index: 2;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator:hover {
+            opacity: 1;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            width: 30px;
+            height: 2px;
+            background: var(--color-amber);
+            transform: translateY(-50%);
+            animation: lineSlideLeft 2s ease-in-out infinite;
         }
 
         .scroll-indicator::after {
             content: '';
             display: block;
             width: 2px;
-            height: 20px;
-            background: var(--color-amber);
-            margin: 0.5rem auto;
+            height: 24px;
+            background: linear-gradient(180deg, var(--color-amber), transparent);
+            margin: 0.8rem auto;
             animation: slideDown 1.5s ease-in-out infinite;
+        }
+
+        @keyframes lineSlideLeft {
+            0%, 100% { width: 0; opacity: 0; }
+            50% { width: 30px; opacity: 1; }
         }
 
         @keyframes float {
             0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+            50% { transform: translateX(-50%) translateY(-15px); }
         }
 
         @keyframes slideDown {
@@ -631,7 +822,7 @@
         .project-card:hover {
             border-color: var(--color-cyan);
             transform: translateY(-8px) rotateX(2deg);
-            box-shadow: 
+            box-shadow:
                 0 20px 40px rgba(0, 217, 255, 0.2),
                 0 0 30px rgba(0, 217, 255, 0.1);
         }
@@ -904,7 +1095,7 @@
     <section class="hero" id="home">
         <div class="hero-content">
             <p class="hero-label">Visionary Developer & Creative Technologist</p>
-            
+
             <h1 class="hero-title" id="heroTitle">
                 <span>A</span><span>y</span><span>u</span><span>s</span><span>h</span>
                 <span>&nbsp;</span>
@@ -916,7 +1107,7 @@
             <div class="hero-role" id="heroRole"></div>
 
             <p class="hero-description">
-                AI/ML Engineer and Full-Stack Developer building intelligent systems for web and enterprise. 
+                AI/ML Engineer and Full-Stack Developer building intelligent systems for web and enterprise.
                 Specializing in Python, React, Node.js, and local LLM integrations.
             </p>
 
@@ -944,7 +1135,7 @@
                 <div class="about-card">
                     <h3>Background</h3>
                     <p>
-                        AI/ML enthusiast with hands-on experience in enterprise data systems and AI-powered applications. 
+                        AI/ML enthusiast with hands-on experience in enterprise data systems and AI-powered applications.
                         Currently a System Engineer at Bizhub Consulting, optimizing SAP HANA databases and delivering BI solutions.
                         Bachelor's degree in Computer Engineering from Everest Engineering College.
                     </p>
@@ -953,9 +1144,9 @@
                 <div class="about-card">
                     <h3>Expertise</h3>
                     <p>
-                        Proficient in Python, NumPy, Pandas, scikit-learn, and LLM integration. 
-                        Built computer vision models on ECG images achieving 87%+ accuracy. 
-                        Full-stack development with React, Node.js, and MongoDB. 
+                        Proficient in Python, NumPy, Pandas, scikit-learn, and LLM integration.
+                        Built computer vision models on ECG images achieving 87%+ accuracy.
+                        Full-stack development with React, Node.js, and MongoDB.
                         10+ projects from concept to production.
                     </p>
                 </div>
@@ -1085,7 +1276,7 @@
                     <h3 class="project-title">Jarvis AI Assistant</h3>
                     <p class="project-meta">2024 | Python | LM Studio</p>
                     <p class="project-description">
-                        Built a fully offline AI assistant with local LLM integration. 
+                        Built a fully offline AI assistant with local LLM integration.
                         Interprets natural language commands and controls computer functions with zero cloud dependency.
                     </p>
                 </article>
@@ -1095,7 +1286,7 @@
                     <h3 class="project-title">Heart Disease Prediction</h3>
                     <p class="project-meta">2024-2025 | Python | scikit-learn | Flask</p>
                     <p class="project-description">
-                        Computer vision + ML system trained on ECG images. 
+                        Computer vision + ML system trained on ECG images.
                         Achieved 87%+ accuracy with three ML classifiers and Flask web UI for real-time patient assessment.
                     </p>
                 </article>
@@ -1105,7 +1296,7 @@
                     <h3 class="project-title">AI Resume Generator</h3>
                     <p class="project-meta">2024-2025 | React | Node.js | MongoDB</p>
                     <p class="project-description">
-                        Full-stack AI resume builder with local LLM. 
+                        Full-stack AI resume builder with local LLM.
                         Cuts content creation by 80%, supports multiple PDF/DOCX templates, zero cloud dependency.
                     </p>
                 </article>
@@ -1115,7 +1306,7 @@
                     <h3 class="project-title">Expense Tracker</h3>
                     <p class="project-meta">MERN | Analytics | Dashboard</p>
                     <p class="project-description">
-                        Full-stack expense management with real-time analytics. 
+                        Full-stack expense management with real-time analytics.
                         Budget tracking, transaction visibility, and spending insights for practical financial management.
                     </p>
                 </article>
@@ -1266,7 +1457,7 @@
         function createParticle() {
             const particle = document.createElement(''div'');
             particle.className = ''particle'';
-            
+
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
             const duration = 3 + Math.random() * 4;
