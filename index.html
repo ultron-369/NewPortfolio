@@ -622,6 +622,68 @@
             pointer-events: none;
         }
 
+        /* =============== CYBER VISUALS =============== */
+        #binary-rain {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        .cyber-grid {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background-image:
+                linear-gradient(var(--color-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+            animation: gridMove 20s linear infinite;
+            opacity: 0.4;
+        }
+
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 0 50px; }
+        }
+
+        .glitch-hover {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .glitch-hover:hover::before,
+        .glitch-hover:hover::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            animation: glitchAnim 0.3s cubic-bezier(.25, .46, .45, .94) infinite;
+        }
+
+        .glitch-hover:hover::before {
+            color: var(--color-cyan);
+            animation-delay: -0.05s;
+            left: 2px;
+        }
+
+        .glitch-hover:hover::after {
+            color: var(--color-amber);
+            animation-delay: 0.05s;
+            left: -2px;
+        }
+
+        @keyframes glitchAnim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
         /* =============== INTERACTIVE TERMINAL =============== */
         .terminal {
             position: fixed;
@@ -1260,6 +1322,8 @@
     <div class="cursor"></div>
     <div class="cursor-ring"></div>
     <div class="particles" id="particles"></div>
+    <canvas id="binary-rain"></canvas>
+    <div class="cyber-grid"></div>
 
     <!-- SYSTEM BOOT OVERLAY -->
     <div id="boot-overlay" class="boot-overlay">
