@@ -516,6 +516,29 @@
             transform: translateY(-1px);
         }
 
+        /* =============== ADVANCED ANIMATIONS =============== */
+        .magnetic-btn {
+            display: inline-block;
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .project-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+        }
+
+        .reveal-left { transform: translateX(-50px); opacity: 0; transition: all 0.8s ease; }
+        .reveal-right { transform: translateX(50px); opacity: 0; transition: all 0.8s ease; }
+        .reveal-up { transform: translateY(50px); opacity: 0; transition: all 0.8s ease; }
+        .reveal-scale { transform: scale(0.9); opacity: 0; transition: all 0.8s ease; }
+
+        .reveal-visible {
+            transform: translate(0) scale(1) !important;
+            opacity: 1 !important;
+        }
+
+
         .btn-primary:active::before {
             width: 300px;
             height: 300px;
@@ -1873,25 +1896,53 @@
             });
         });
 
-        // =============== SECTION REVEAL ANIMATION ===============
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: ''0px 0px -100px 0px''
-        };
+        // =============== ADVANCED ANIMATIONS ===============
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = ''revealUp 0.8s ease forwards'';
-                }
+        // Magnetic Buttons
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+            btn.classList.add('magnetic-btn');
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
             });
-        }, observerOptions);
-
-        document.querySelectorAll(''.about-card, .skill-group, .project-card, .contact-item'').forEach(el => {
-            observer.observe(el);
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
         });
 
-        // =============== PARTICLE GENERATION ===============
+        // Project Card Parallax Tilt
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(1000px) rotateX(${y * -10}deg) rotateY(${x * 10}deg) translateY(-8px)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
+            });
+        });
+
+        // Enhanced Section Reveals
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.about-card, .skill-group, .project-card, .contact-item').forEach(el => {
+            // Assign random reveal type for variety
+            const types = ['reveal-left', 'reveal-right', 'reveal-up', 'reveal-scale'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            el.classList.add(type);
+            revealObserver.observe(el);
+        });
+
+        // =============== CUSTOM CURSOR ===============
         const particlesContainer = document.getElementById(''particles'');
         function createParticle() {
             const particle = document.createElement(''div'');
