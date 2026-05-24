@@ -49,7 +49,9 @@
             line-height: 1.6;
             position: relative;
             overflow-x: hidden;
+            opacity: 1;
         }
+
 
         /* =============== CUSTOM CURSOR =============== */
         body {
@@ -1773,23 +1775,38 @@
             const bar = document.getElementById('boot-bar');
             const overlay = document.getElementById('boot-overlay');
 
-            for (let i = 0; i < bootMessages.length; i++) {
-                const msg = document.createElement('div');
-                msg.textContent = bootMessages[i];
-                log.appendChild(msg);
+            // Safety timeout: hide overlay after 10s regardless of progress
+            const safetyTimeout = setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 10000);
 
-                const progress = ((i + 1) / bootMessages.length) * 100;
-                bar.style.width = `${progress}%`;
+            try {
+                for (let i = 0; i < bootMessages.length; i++) {
+                    const msg = document.createElement('div');
+                    msg.textContent = bootMessages[i];
+                    log.appendChild(msg);
 
-                await new Promise(resolve => setTimeout(resolve, 150 + Math.random() * 300));
-                log.scrollTop = log.scrollHeight;
+                    const progress = ((i + 1) / bootMessages.length) * 100;
+                    bar.style.width = `${progress}%`;
+
+                    await new Promise(resolve => setTimeout(resolve, 150 + Math.random() * 300));
+                    log.scrollTop = log.scrollHeight;
+                }
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+            } catch (e) {
+                console.error("Boot sequence failed:", e);
+            } finally {
+                clearTimeout(safetyTimeout);
+                overlay.classList.add('hidden');
             }
-
-            await new Promise(resolve => setTimeout(resolve, 500));
-            overlay.classList.add('hidden');
         }
 
-        window.addEventListener('DOMContentLoaded', runBootSequence);
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', runBootSequence);
+        } else {
+            runBootSequence();
+        }
 
         // =============== INTERACTIVE TERMINAL ===============
         const terminalInput = document.getElementById('terminal-input');
@@ -2004,9 +2021,7 @@
         });
 
         // =============== PAGE LOAD ANIMATION ===============
-        window.addEventListener(''load'', () => {
-            document.body.style.opacity = ''1'';
-        });
+        // Handled by boot sequence and CSS opacity: 1
     </script>
 </body>
 </html>
