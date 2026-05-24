@@ -1655,6 +1655,54 @@
 
         window.addEventListener('DOMContentLoaded', runBootSequence);
 
+        // =============== INTERACTIVE TERMINAL ===============
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalBody = document.getElementById('terminal-body');
+        const terminal = document.getElementById('terminal');
+
+        const commands = {
+            'help': 'Available commands: \n- about: Show professional background\n- skills: List technical expertise\n- projects: List featured work\n- whoami: Short bio\n- clear: Clear terminal screen\n- help: Show this menu',
+            'about': 'Ayush Jung Kunwar: Systems Engineer @ Bizhub Consulting. Expert in SAP HANA, Cloud Infra, and AI/ML scaling.',
+            'skills': 'AI/ML (Python, PyTorch), Systems (SAP HANA, Linux, K8s), Full-Stack (React, Node.js), Security (Network, OWASP).',
+            'projects': '1. Jarvis AI Assistant (Local LLM)\n2. Heart Disease Prediction (CV + ML)\n3. AI Resume Generator (MERN + AI)',
+            'whoami': 'A hybrid engineer bridging the gap between hardware, systems, and intelligent software.',
+        };
+
+        function toggleTerminal() {
+            terminal.classList.toggle('minimized');
+        }
+
+        document.querySelector('.terminal-header').addEventListener('click', toggleTerminal);
+
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const cmd = terminalInput.value.toLowerCase().trim();
+                const line = document.createElement('div');
+                line.className = 'terminal-line cmd';
+                line.textContent = `system@ajk:~$ ${cmd}`;
+                terminalBody.appendChild(line);
+
+                if (cmd === 'clear') {
+                    terminalBody.innerHTML = '';
+                } else if (commands[cmd]) {
+                    const response = document.createElement('div');
+                    response.className = 'terminal-line';
+                    response.textContent = commands[cmd];
+                    terminalBody.appendChild(response);
+                } else if (cmd === '') {
+                    // do nothing
+                } else {
+                    const error = document.createElement('div');
+                    error.className = 'terminal-line error';
+                    error.textContent = `Command not found: ${cmd}. Type 'help' for assistance.`;
+                    terminalBody.appendChild(error);
+                }
+
+                terminalInput.value = '';
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+        });
+
         // =============== CUSTOM CURSOR ===============
         const cursor = document.querySelector(''.cursor'');
         const cursorRing = document.querySelector(''.cursor-ring'');
