@@ -1678,6 +1678,47 @@
     </footer>
 
     <script>
+        // =============== BINARY RAIN EFFECT ===============
+        const canvas = document.getElementById('binary-rain');
+        const ctx = canvas.getContext('2d');
+
+        let width, height, columns;
+        const fontSize = 16;
+        const drops = [];
+
+        function initBinaryRain() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+
+            columns = Math.floor(width / fontSize);
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * height;
+            }
+        }
+
+        function drawBinaryRain() {
+            ctx.fillStyle = 'rgba(3, 7, 18, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+            ctx.fillStyle = '#00d9ff';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = Math.random() > 0.5 ? '0' : '1';
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        window.addEventListener('resize', initBinaryRain);
+        initBinaryRain();
+        setInterval(drawBinaryRain, 33);
+
         // =============== SYSTEM BOOT SEQUENCE ===============
         const bootMessages = [
             "[INFO] Initializing kernel modules...",
