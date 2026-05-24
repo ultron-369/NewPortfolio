@@ -1157,6 +1157,26 @@
         </div>
     </div>
 
+    <!-- INTERACTIVE TERMINAL -->
+    <div id="terminal" class="terminal">
+        <div class="terminal-header">
+            <div class="terminal-controls">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="terminal-title">system@ajk: ~</div>
+            <div class="terminal-close" onclick="toggleTerminal()">×</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <div class="terminal-line">Welcome to AJK OS v1.0.0. Type 'help' to see available commands.</div>
+        </div>
+        <div class="terminal-input-line">
+            <span class="terminal-prompt">system@ajk:~$</span>
+            <input type="text" id="terminal-input" autofocus autocomplete="off">
+        </div>
+    </div>
+
 
     <nav>
         <div class="nav-container">
@@ -1480,6 +1500,47 @@
     </footer>
 
     <script>
+        // =============== SYSTEM BOOT SEQUENCE ===============
+        const bootMessages = [
+            "[INFO] Initializing kernel modules...",
+            "[OK] Core systems online",
+            "[INFO] Loading neural network weights...",
+            "[OK] LLM integration established",
+            "[INFO] Checking security protocols...",
+            "[OK] Firewall active. Encrypted tunnel established.",
+            "[INFO] Mounting project directories...",
+            "[OK] Asset manifest loaded",
+            "[INFO] Synchronizing with remote server...",
+            "[OK] Connection stable. Latency: 14ms",
+            "[INFO] Calibrating interactive interface...",
+            "[OK] Visuals synchronized.",
+            "[INFO] Ready to deploy user interface...",
+            "ACCESS GRANTED. Welcome, Ayush Jung Kunwar."
+        ];
+
+        async function runBootSequence() {
+            const log = document.getElementById('boot-log');
+            const bar = document.getElementById('boot-bar');
+            const overlay = document.getElementById('boot-overlay');
+
+            for (let i = 0; i < bootMessages.length; i++) {
+                const msg = document.createElement('div');
+                msg.textContent = bootMessages[i];
+                log.appendChild(msg);
+
+                const progress = ((i + 1) / bootMessages.length) * 100;
+                bar.style.width = `${progress}%`;
+
+                await new Promise(resolve => setTimeout(resolve, 150 + Math.random() * 300));
+                log.scrollTop = log.scrollHeight;
+            }
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+            overlay.classList.add('hidden');
+        }
+
+        window.addEventListener('DOMContentLoaded', runBootSequence);
+
         // =============== CUSTOM CURSOR ===============
         const cursor = document.querySelector(''.cursor'');
         const cursorRing = document.querySelector(''.cursor-ring'');
