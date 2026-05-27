@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -1857,37 +1857,37 @@
         });
 
         // =============== CUSTOM CURSOR ===============
-        const cursor = document.querySelector(''.cursor'');
-        const cursorRing = document.querySelector(''.cursor-ring'');
+        const cursor = document.querySelector('.cursor');
+        const cursorRing = document.querySelector('.cursor-ring');
         let mouseX = 0, mouseY = 0;
         let ringX = 0, ringY = 0;
 
-        document.addEventListener(''mousemove'', (e) => {
+        document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
 
-            cursor.style.left = mouseX + ''px'';
-            cursor.style.top = mouseY + ''px'';
+            cursor.style.left = mouseX + 'px';
+            cursor.style.top = mouseY + 'px';
 
             ringX += (mouseX - ringX) * 0.2;
             ringY += (mouseY - ringY) * 0.2;
-            cursorRing.style.left = ringX + ''px'';
-            cursorRing.style.top = ringY + ''px'';
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
         });
 
         // Hover effect on interactive elements
-        document.querySelectorAll(''a, button'').forEach(el => {
-            el.addEventListener(''mouseenter'', () => {
-                cursorRing.classList.add(''active'');
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorRing.classList.add('active');
             });
-            el.addEventListener(''mouseleave'', () => {
-                cursorRing.classList.remove(''active'');
+            el.addEventListener('mouseleave', () => {
+                cursorRing.classList.remove('active');
             });
         });
 
         // =============== HERO TYPEWRITER ===============
         const roleText = "AI Engineer. Full-Stack Developer. System Engineer.";
-        const roleElement = document.getElementById(''heroRole'');
+        const roleElement = document.getElementById('heroRole');
         let roleIndex = 0;
 
         function typeRole() {
@@ -1901,22 +1901,22 @@
         setTimeout(typeRole, 800);
 
         // =============== NAVIGATION SCROLL EFFECT ===============
-        const nav = document.querySelector(''nav'');
-        window.addEventListener(''scroll'', () => {
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                nav.classList.add(''scrolled'');
+                nav.classList.add('scrolled');
             } else {
-                nav.classList.remove(''scrolled'');
+                nav.classList.remove('scrolled');
             }
         });
 
         // =============== SMOOTH SCROLL LINKS ===============
-        document.querySelectorAll(''a[href^="#"]'').forEach(link => {
-            link.addEventListener(''click'', (e) => {
-                const href = link.getAttribute(''href'');
-                if (href !== ''#'' && document.querySelector(href)) {
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
-                    document.querySelector(href).scrollIntoView({ behavior: ''smooth'' });
+                    document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
@@ -1967,19 +1967,19 @@
             revealObserver.observe(el);
         });
 
-        // =============== CUSTOM CURSOR ===============
-        const particlesContainer = document.getElementById(''particles'');
+        // =============== FLOATING PARTICLES ===============
+        const particlesContainer = document.getElementById('particles');
         function createParticle() {
-            const particle = document.createElement(''div'');
-            particle.className = ''particle'';
+            const particle = document.createElement('div');
+            particle.className = 'particle';
 
             const x = Math.random() * window.innerWidth;
             const y = Math.random() * window.innerHeight;
             const duration = 3 + Math.random() * 4;
             const delay = Math.random() * 2;
 
-            particle.style.left = x + ''px'';
-            particle.style.top = y + ''px'';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
             particle.style.animation = `floatParticle ${duration}s linear ${delay}s infinite`;
 
             particlesContainer.appendChild(particle);
@@ -1987,7 +1987,7 @@
             setTimeout(() => particle.remove(), (duration + delay) * 1000);
         }
 
-        const style = document.createElement(''style'');
+        const style = document.createElement('style');
         style.textContent = `
             @keyframes floatParticle {
                 from {
@@ -2009,11 +2009,11 @@
         }, 500);
 
         // =============== CONTACT FORM ===============
-        document.getElementById(''contactForm'').addEventListener(''submit'', (e) => {
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = document.getElementById(''name'').value;
-            const email = document.getElementById(''email'').value;
-            const message = document.getElementById(''message'').value;
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message' ).value;
 
             const subject = encodeURIComponent(`New message from ${name}`);
             const body = encodeURIComponent(`From: ${email}\n\n${message}`);
