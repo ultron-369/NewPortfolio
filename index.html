@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ayush Jung Kunwar - AI/ML Engineer, Full-Stack Developer, System Engineer. Stunning cyber-noir portfolio with interactive animations.">
+    <meta name="description"
+        content="Ayush Jung Kunwar - AI/ML Engineer, Full-Stack Developer, System Engineer. Stunning cyber-noir portfolio with interactive animations.">
     <meta name="theme-color" content="#030712">
     <title>Ayush Jung Kunwar — AI Engineer & Creative Technologist</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/branding/favicon-32x32.png">
@@ -98,20 +100,23 @@
             width: 100%;
             height: 100%;
             background:
-                repeating-linear-gradient(
-                    0deg,
+                repeating-linear-gradient(0deg,
                     rgba(255, 255, 255, 0.03) 1px,
                     transparent 1px,
-                    transparent 2px
-                );
+                    transparent 2px);
             pointer-events: none;
             z-index: 1;
             animation: scanlines 8s linear infinite;
         }
 
         @keyframes scanlines {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(10px); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(10px);
+            }
         }
 
         /* =============== NAVIGATION =============== */
@@ -199,6 +204,7 @@
             .nav-links {
                 gap: 1rem;
             }
+
             .nav-links a {
                 font-size: 0.8rem;
             }
@@ -233,8 +239,15 @@
         }
 
         @keyframes heroGlowPulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.8;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         .hero::after {
@@ -252,8 +265,15 @@
         }
 
         @keyframes heroFloatOrb {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, 30px) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, 30px) scale(1.1);
+            }
         }
 
         .hero-content {
@@ -292,6 +312,7 @@
                 width: 0;
                 opacity: 0;
             }
+
             to {
                 width: 20px;
                 opacity: 1;
@@ -326,8 +347,13 @@
         }
 
         @keyframes shineEffect {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         .hero-title span {
@@ -336,31 +362,77 @@
             position: relative;
         }
 
-        .hero-title span:nth-child(1) { animation-delay: 0.0s; }
-        .hero-title span:nth-child(2) { animation-delay: 0.05s; }
-        .hero-title span:nth-child(3) { animation-delay: 0.1s; }
-        .hero-title span:nth-child(4) { animation-delay: 0.15s; }
-        .hero-title span:nth-child(5) { animation-delay: 0.2s; }
-        .hero-title span:nth-child(6) { animation-delay: 0.3s; }
-        .hero-title span:nth-child(7) { animation-delay: 0.35s; }
-        .hero-title span:nth-child(8) { animation-delay: 0.4s; }
-        .hero-title span:nth-child(9) { animation-delay: 0.45s; }
-        .hero-title span:nth-child(10) { animation-delay: 0.5s; }
-        .hero-title span:nth-child(11) { animation-delay: 0.6s; }
-        .hero-title span:nth-child(12) { animation-delay: 0.65s; }
-        .hero-title span:nth-child(13) { animation-delay: 0.7s; }
-        .hero-title span:nth-child(14) { animation-delay: 0.75s; }
-        .hero-title span:nth-child(15) { animation-delay: 0.8s; }
+        .hero-title span:nth-child(1) {
+            animation-delay: 0.0s;
+        }
+
+        .hero-title span:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        .hero-title span:nth-child(3) {
+            animation-delay: 0.1s;
+        }
+
+        .hero-title span:nth-child(4) {
+            animation-delay: 0.15s;
+        }
+
+        .hero-title span:nth-child(5) {
+            animation-delay: 0.2s;
+        }
+
+        .hero-title span:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .hero-title span:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .hero-title span:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        .hero-title span:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+
+        .hero-title span:nth-child(10) {
+            animation-delay: 0.5s;
+        }
+
+        .hero-title span:nth-child(11) {
+            animation-delay: 0.6s;
+        }
+
+        .hero-title span:nth-child(12) {
+            animation-delay: 0.65s;
+        }
+
+        .hero-title span:nth-child(13) {
+            animation-delay: 0.7s;
+        }
+
+        .hero-title span:nth-child(14) {
+            animation-delay: 0.75s;
+        }
+
+        .hero-title span:nth-child(15) {
+            animation-delay: 0.8s;
+        }
 
         @keyframes heroLetterSlide {
             0% {
                 opacity: 0;
                 transform: translateY(100px) rotateX(-90deg) scale(0.8);
             }
+
             50% {
                 opacity: 1;
                 transform: translateY(-10px) rotateX(0deg) scale(1.05);
             }
+
             100% {
                 opacity: 1;
                 transform: translateY(0) rotateX(0deg) scale(1);
@@ -391,8 +463,13 @@
         }
 
         @keyframes underlineExpand {
-            from { width: 0; }
-            to { width: 100%; }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
         }
 
         .hero-role::after {
@@ -402,8 +479,16 @@
         }
 
         @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
+
+            0%,
+            49% {
+                opacity: 1;
+            }
+
+            50%,
+            100% {
+                opacity: 0;
+            }
         }
 
         .hero-description {
@@ -426,6 +511,7 @@
                 transform: translateY(30px);
                 border-left-color: transparent;
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -462,6 +548,7 @@
                 opacity: 0;
                 transform: scale(0.8) translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) translateY(0);
@@ -530,10 +617,29 @@
             transition: transform 0.1s ease-out, box-shadow 0.3s ease;
         }
 
-        .reveal-left { transform: translateX(-50px); opacity: 0; transition: all 0.8s ease; }
-        .reveal-right { transform: translateX(50px); opacity: 0; transition: all 0.8s ease; }
-        .reveal-up { transform: translateY(50px); opacity: 0; transition: all 0.8s ease; }
-        .reveal-scale { transform: scale(0.9); opacity: 0; transition: all 0.8s ease; }
+        .reveal-left {
+            transform: translateX(-50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .reveal-right {
+            transform: translateX(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .reveal-up {
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
+
+        .reveal-scale {
+            transform: scale(0.9);
+            opacity: 0;
+            transition: all 0.8s ease;
+        }
 
         .reveal-visible {
             transform: translate(0) scale(1) !important;
@@ -619,7 +725,9 @@
         }
 
         @keyframes bootFadeIn {
-            to { opacity: 1; }
+            to {
+                opacity: 1;
+            }
         }
 
         .boot-progress {
@@ -670,8 +778,13 @@
         }
 
         @keyframes gridMove {
-            from { background-position: 0 0; }
-            to { background-position: 0 50px; }
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 50px;
+            }
         }
 
         .glitch-hover {
@@ -701,12 +814,29 @@
         }
 
         @keyframes glitchAnim {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(-2px, -2px);
+            }
+
+            60% {
+                transform: translate(2px, 2px);
+            }
+
+            80% {
+                transform: translate(2px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
         }
 
         /* =============== INTERACTIVE TERMINAL =============== */
@@ -753,9 +883,18 @@
             height: 10px;
             border-radius: 50%;
         }
-        .dot.red { background: #ff5f56; }
-        .dot.yellow { background: #ffbd2e; }
-        .dot.green { background: #27c93f; }
+
+        .dot.red {
+            background: #ff5f56;
+        }
+
+        .dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .dot.green {
+            background: #27c93f;
+        }
 
         .terminal-title {
             font-size: 0.8rem;
@@ -847,18 +986,41 @@
         }
 
         @keyframes lineSlideLeft {
-            0%, 100% { width: 0; opacity: 0; }
-            50% { width: 30px; opacity: 1; }
+
+            0%,
+            100% {
+                width: 0;
+                opacity: 0;
+            }
+
+            50% {
+                width: 30px;
+                opacity: 1;
+            }
         }
 
         @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-15px); }
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-15px);
+            }
         }
 
         @keyframes slideDown {
-            0% { transform: translateY(0); opacity: 1; }
-            100% { transform: translateY(15px); opacity: 0; }
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(15px);
+                opacity: 0;
+            }
         }
 
         @keyframes fadeInUp {
@@ -866,6 +1028,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -912,6 +1075,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1051,8 +1215,13 @@
         }
 
         @keyframes fillBar {
-            from { width: 0; }
-            to { width: var(--width); }
+            from {
+                width: 0;
+            }
+
+            to {
+                width: var(--width);
+            }
         }
 
         /* =============== PROJECTS SECTION =============== */
@@ -1156,10 +1325,21 @@
             line-height: 1.6;
         }
 
-        .projects-grid > :nth-child(1) { animation-delay: 0s; }
-        .projects-grid > :nth-child(2) { animation-delay: 0.1s; }
-        .projects-grid > :nth-child(3) { animation-delay: 0.2s; }
-        .projects-grid > :nth-child(4) { animation-delay: 0.3s; }
+        .projects-grid> :nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .projects-grid> :nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .projects-grid> :nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .projects-grid> :nth-child(4) {
+            animation-delay: 0.3s;
+        }
 
         /* =============== CONTACT SECTION =============== */
         #contact {
@@ -1343,6 +1523,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="cursor"></div>
     <div class="cursor-ring"></div>
@@ -1383,7 +1564,7 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#home" class="nav-brand">A.J.K</a>
+            <a href="#home" class="nav-brand">Ayush Jung Kunwar</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1411,11 +1592,13 @@
 
             <p class="hero-description">
                 Bridging the gap between low-level system architecture and high-level artificial intelligence.
-                Specialized in building secure, scalable full-stack systems with a focus on AI/ML integration and robust infrastructure.
+                Specialized in building secure, scalable full-stack systems with a focus on AI/ML integration and robust
+                infrastructure.
             </p>
 
             <div class="hero-cta">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushjung.kunwar369@gmail.com" target="_blank" rel="noreferrer" class="btn btn-primary">Get In Touch</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=ayushjung.kunwar369@gmail.com" target="_blank"
+                    rel="noreferrer" class="btn btn-primary">Get In Touch</a>
                 <a href="./assets/cv/Ayush_Jung_Kunwar_CV.pdf" download class="btn btn-secondary">Download CV</a>
                 <a href="#projects" class="btn btn-secondary">View Work</a>
             </div>
@@ -1438,18 +1621,24 @@
                 <div class="about-card">
                     <h3>Background</h3>
                     <p>
-                        Systems Engineer with a core focus on high-performance database optimization and enterprise-scale infrastructure.
-                        Currently optimizing SAP HANA environments at Bizhub Consulting, where I bridge the gap between raw system performance and business intelligence.
-                        Academic foundation in Computer Engineering from Everest Engineering College, specialized in scalable architectures.
+                        Systems Engineer with a core focus on high-performance database optimization and
+                        enterprise-scale infrastructure.
+                        Currently optimizing SAP HANA environments at Bizhub Consulting, where I bridge the gap between
+                        raw system performance and business intelligence.
+                        Academic foundation in Computer Engineering from Everest Engineering College, specialized in
+                        scalable architectures.
                     </p>
                 </div>
 
                 <div class="about-card">
                     <h3>Expertise</h3>
                     <p>
-                        Architecting secure, intelligent systems by combining Full-Stack proficiency with AI/ML and Cybersecurity.
-                        Proven track record in deploying local LLMs and computer vision models (87%+ accuracy on ECG analysis) within production-ready environments.
-                        Driven by a security-first mindset, ensuring that every layer from the kernel to the frontend is hardened and optimized.
+                        Architecting secure, intelligent systems by combining Full-Stack proficiency with AI/ML and
+                        Cybersecurity.
+                        Proven track record in deploying local LLMs and computer vision models (87%+ accuracy on ECG
+                        analysis) within production-ready environments.
+                        Driven by a security-first mindset, ensuring that every layer from the kernel to the frontend is
+                        hardened and optimized.
                     </p>
                 </div>
             </div>
@@ -1613,7 +1802,8 @@
                     <p class="project-meta">2024 | Python | LM Studio</p>
                     <p class="project-description">
                         Engineered a fully offline AI ecosystem with local LLM integration.
-                        Implemented custom natural language parsing to control OS-level functions with zero external API dependencies, prioritizing data privacy and low-latency response.
+                        Implemented custom natural language parsing to control OS-level functions with zero external API
+                        dependencies, prioritizing data privacy and low-latency response.
                     </p>
                 </article>
 
@@ -1625,7 +1815,8 @@
                     <p class="project-meta">2024-2025 | Python | scikit-learn | Flask</p>
                     <p class="project-description">
                         Developed a medical diagnostic system using Computer Vision and ML trained on ECG datasets.
-                        Achieved 87%+ accuracy by ensemble-layering three distinct ML classifiers, deployed via a secure Flask REST API.
+                        Achieved 87%+ accuracy by ensemble-layering three distinct ML classifiers, deployed via a secure
+                        Flask REST API.
                     </p>
                 </article>
 
@@ -1637,7 +1828,8 @@
                     <p class="project-meta">2024-2025 | React | Node.js | MongoDB</p>
                     <p class="project-description">
                         Architected a full-stack resume engine leveraging local LLMs for content optimization.
-                        Reduced content creation time by 80% while maintaining strict data residency through a decoupled MERN architecture.
+                        Reduced content creation time by 80% while maintaining strict data residency through a decoupled
+                        MERN architecture.
                     </p>
                 </article>
 
@@ -1649,7 +1841,8 @@
                     <p class="project-meta">MERN | Analytics | Dashboard</p>
                     <p class="project-description">
                         Designed a comprehensive financial management system with real-time data visualization.
-                        Integrated advanced analytics for spending patterns and automated budget forecasting using a scalable MongoDB schema.
+                        Integrated advanced analytics for spending patterns and automated budget forecasting using a
+                        scalable MongoDB schema.
                     </p>
                 </article>
             </div>
@@ -1681,8 +1874,10 @@
                     <div class="contact-item">
                         <h3>Profiles</h3>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <a href="https://github.com/ultron0412" target="_blank" rel="noreferrer">GitHub → @ultron0412</a>
-                            <a href="https://linkedin.com/in/ayush-jung-kunwar-169733276" target="_blank" rel="noreferrer">LinkedIn</a>
+                            <a href="https://github.com/ultron0412" target="_blank" rel="noreferrer">GitHub →
+                                @ultron0412</a>
+                            <a href="https://linkedin.com/in/ayush-jung-kunwar-169733276" target="_blank"
+                                rel="noreferrer">LinkedIn</a>
                         </div>
                     </div>
                 </div>
@@ -2013,7 +2208,7 @@
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
-            const message = document.getElementById('message' ).value;
+            const message = document.getElementById('message').value;
 
             const subject = encodeURIComponent(`New message from ${name}`);
             const body = encodeURIComponent(`From: ${email}\n\n${message}`);
@@ -2024,4 +2219,5 @@
         // Handled by boot sequence and CSS opacity: 1
     </script>
 </body>
+
 </html>
