@@ -1312,6 +1312,10 @@
             letter-spacing: 0;
         }
 
+        section[id] {
+            scroll-margin-top: 6rem;
+        }
+
         #about,
         #projects,
         #contact {
@@ -1415,6 +1419,43 @@
             color: #526174;
             background: #ffffff;
             border-top-color: #d9e2ec;
+        }
+
+        @media (max-width: 640px) {
+            nav {
+                padding: 0.75rem 1.25rem;
+            }
+
+            .nav-container {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.35rem;
+            }
+
+            .nav-brand {
+                font-size: 1.1rem;
+                white-space: nowrap;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-between;
+                gap: 0.5rem;
+            }
+
+            .nav-links a {
+                font-size: 0.72rem;
+                white-space: nowrap;
+            }
+
+            .hero-title {
+                font-size: clamp(1.35rem, 7vw, 1.8rem);
+                white-space: nowrap;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
         }
 
         @media (prefers-reduced-motion: reduce) {
