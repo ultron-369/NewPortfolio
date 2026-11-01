@@ -6,22 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Ayush Jung Kunwar — Full-Stack Developer, SAP Business One Consultant, and Cybersecurity professional building secure, business-focused digital solutions.">
-    <meta name="theme-color" content="#030712">
+    <meta name="theme-color" content="#f5f7fb">
     <title>Ayush Jung Kunwar — Full-Stack Developer | SAP B1 Consultant | Cybersecurity</title>
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/branding/favicon-32x32.png">
     <link rel="manifest" href="./site.webmanifest">
 
     <style>
         :root {
-            --color-dark: #030712;
-            --color-darker: #020509;
-            --color-grid: #0a1e3c;
-            --color-cyan: #00d9ff;
-            --color-amber: #ffa500;
-            --color-purple: #8b5cf6;
-            --color-text-primary: #f0f0f0;
-            --color-text-secondary: #a0a0a0;
-            --color-border: #1a3a52;
+            --color-dark: #f5f7fb;
+            --color-darker: #ffffff;
+            --color-grid: #e6ebf2;
+            --color-cyan: #2563eb;
+            --color-amber: #0f766e;
+            --color-purple: #6366f1;
+            --color-text-primary: #17243b;
+            --color-text-secondary: #526174;
+            --color-border: #d9e2ec;
 
             --font-mono: 'JetBrains Mono', 'Courier New', monospace;
             --font-display: 'Syne', 'Inter', sans-serif;
@@ -56,69 +56,6 @@
 
 
         /* =============== CUSTOM CURSOR =============== */
-        body {
-            cursor: none;
-        }
-
-        .cursor {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background: var(--color-cyan);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: screen;
-        }
-
-        .cursor-ring {
-            position: fixed;
-            width: 32px;
-            height: 32px;
-            border: 2px solid var(--color-cyan);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            opacity: 0.6;
-            transition: all 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .cursor-ring.active {
-            width: 48px;
-            height: 48px;
-            border-color: var(--color-amber);
-            opacity: 1;
-            box-shadow: 0 0 20px var(--color-amber);
-        }
-
-        /* =============== BACKGROUND & TEXTURES =============== */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                repeating-linear-gradient(0deg,
-                    rgba(255, 255, 255, 0.03) 1px,
-                    transparent 1px,
-                    transparent 2px);
-            pointer-events: none;
-            z-index: 1;
-            animation: scanlines 8s linear infinite;
-        }
-
-        @keyframes scanlines {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(10px);
-            }
-        }
-
         /* =============== NAVIGATION =============== */
         nav {
             position: fixed;
